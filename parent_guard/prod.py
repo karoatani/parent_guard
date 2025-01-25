@@ -2,6 +2,7 @@ import settings
 from decouple import config
 import dj_database_url
 
+DEBUG = False
 SECRET_KEY= config("SECRET_KEY")
 
 DATABASES = {
