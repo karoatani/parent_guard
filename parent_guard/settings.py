@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2%zniofp135at)44p4^w=er=xq(-fe%bsy_)3=x8nuc^ivyjco'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -84,20 +84,20 @@ WSGI_APPLICATION = 'parent_guard.wsgi.application'
 
 # Production Database
 
-# if DEBUG:
-#     DB_NAME = config("DB_NAME")
-#     DB_USER = config("DB_USER")
-#     DB_PASSWORD = config("DB_PASSWORD")
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': DB_NAME,
-#             'USER': DB_USER,
-#             'PASSWORD': DB_PASSWORD,
-#             'HOST': 'localhost',
-#             'PORT': '5432',
-#         }
-#     }
+if DEBUG:
+    DB_NAME = config("DB_NAME")
+    DB_USER = config("DB_USER")
+    DB_PASSWORD = config("DB_PASSWORD")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -179,7 +179,6 @@ SIMPLE_JWT = {
     )
 }
 
-# ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost', 'parentguard.up.railway.app/']
 CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'https://parentguard.up.railway.app/', 'http://parentguard.up.railway.app']
 
 
