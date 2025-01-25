@@ -99,7 +99,6 @@ if DEBUG:
         }
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -139,7 +138,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static_in_env')
 #end
 
 # Default primary key field type
@@ -181,9 +180,6 @@ SIMPLE_JWT = {
 }
 
 CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'https://parentguard.up.railway.app/', 'http://parentguard.up.railway.app']
-
-# Whitenoise configuration for serving static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
