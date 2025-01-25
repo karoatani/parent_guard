@@ -1,0 +1,9 @@
+settings.ini
+venv
+__pycache__
+staticfiles
+static
+static_in_env
+*.sqlite3
+.env
+migrations
