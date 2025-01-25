@@ -184,4 +184,11 @@ SIMPLE_JWT = {
 CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'https://parentguard.up.railway.app/', 'http://parentguard.up.railway.app']
 
 
-
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
