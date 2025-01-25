@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-2%zniofp135at)44p4^w=er=xq(-fe%bsy_)3=x8nuc^ivyjco
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -179,7 +179,7 @@ SIMPLE_JWT = {
     )
 }
 
-ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost', 'parentguard.up.railway.app/']
+# ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost', 'parentguard.up.railway.app/']
 CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'https://parentguard.up.railway.app/', 'http://parentguard.up.railway.app']
 
 
