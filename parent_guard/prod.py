@@ -7,9 +7,6 @@ SECRET_KEY= config("SECRET_KEY")
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='django.db.backends.postgresql',
-        conn_max_age=600,
-        conn_health_checks=True,
-    ),
-    
+        default=os.getenv('DATABASE_URL')
+    )
 }
