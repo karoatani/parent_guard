@@ -37,8 +37,8 @@ class Account(AbstractUser):
     activate_account_code = models.CharField(max_length=40, blank=True, null=True)
     forgot_password_code = models.CharField(max_length=40, blank=True, null=True)
     role = models.CharField(max_length=255, choices=ROLE_CHOICES)
-    first_name = models.CharField(max_length=255, blank=True, null=True)
-    last_name = models.CharField(max_length=255, blank=True, null=True)
+    first_name = models.CharField(max_length=255, default='')
+    last_name = models.CharField(max_length=255, default='')
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ['username']
     date_created = models.DateTimeField(auto_now_add=True)
