@@ -1,4 +1,4 @@
-from settings import *
+from parent_guard.settings import *
 from decouple import config
 import dj_database_url
 
