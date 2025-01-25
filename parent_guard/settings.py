@@ -179,8 +179,8 @@ SIMPLE_JWT = {
     )
 }
 
-ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1']
+ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost']
+CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost']
 
 
 
