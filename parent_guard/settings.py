@@ -179,8 +179,8 @@ SIMPLE_JWT = {
     )
 }
 
-ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost', 'https://parentguard.up.railway.app/']
-CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'https://parentguard.up.railway.app/']
+ALLOWED_HOSTS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", '127.0.0.1', 'localhost', 'parentguard.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ["chrome-extension://gedccjjhdboobdnflkphgmmnkmajgbbf", 'http://127.0.0.1', 'http://localhost', 'parentguard.up.railway.app/']
 
 
 
