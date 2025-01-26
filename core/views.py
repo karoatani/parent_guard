@@ -156,10 +156,12 @@ class BrowsingSessionStartAPIView(APIView):
         
         # Check schedules
         current_time = timezone.now().time()  # Get just the time component
+        print(child.schedule.all().values('duration_start', 'duration_end'))
         blocked_by_schedule = child.schedule.filter(
-            duration_start__lte=current_time,
+            # duration_start__lte=current_time,
             duration_end__gte=current_time
         ).exists()
+        print(blocked_by_schedule)
         
         
         if blocked_by_schedule:
@@ -682,11 +684,9 @@ class DashboardParentSettingsScheduleCreateAPIView(APIView):
             schedule_data = validated_data['schedule']
 
             profile = ChildProfile.objects.get(id=profile_id)
-            print(validated_data)
             # Create the schedule
             schedule = Schedule.objects.create(**schedule_data)
-            print(schedule.objects.all().values('duration_start', 'duration_end'))
-
+            
             # Add to profile's schedule
             profile.schedule.add(schedule)
 
