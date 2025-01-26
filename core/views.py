@@ -156,10 +156,23 @@ class BrowsingSessionStartAPIView(APIView):
         
         # Check schedules
         current_time = timezone.now().time()  # Get just the time component
-        blocked_by_schedule = child.schedule.filter(
-            duration_start__lte=current_time,
-            duration_end__gte=current_time
-        ).exists()
+        
+        # Check each schedule individually to handle midnight spanning correctly
+        blocked_by_schedule = False
+        for schedule in child.schedule.all():
+            start_time = schedule.duration_start
+            end_time = schedule.duration_end
+            
+            if start_time <= end_time:
+                # Normal time range (e.g., 09:00 to 17:00)
+                if start_time <= current_time <= end_time:
+                    blocked_by_schedule = True
+                    break
+            else:
+                # Time range spans midnight (e.g., 22:00 to 06:00)
+                if current_time >= start_time or current_time <= end_time:
+                    blocked_by_schedule = True
+                    break
         
         print('current time', current_time)
         print('Schedules:', list(child.schedule.values('duration_start', 'duration_end')))
