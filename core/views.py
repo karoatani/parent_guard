@@ -155,7 +155,7 @@ class BrowsingSessionStartAPIView(APIView):
         host_name = domain.replace('www.', '').split('.')[0]
         
         # Check schedules
-        current_time = timezone.now()
+        current_time = timezone.localtime(timezone.now())
         current_time_only = current_time.time()  # Get just the time component
         # 11:31 - 11:50
         # 11:45
