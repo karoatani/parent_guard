@@ -155,7 +155,7 @@ class BrowsingSessionStartAPIView(APIView):
         host_name = domain.replace('www.', '').split('.')[0]
         
         # Check schedules
-        current_time = timezone.now()
+        current_time = timezone.now().time()  # Get just the time component
         blocked_by_schedule = child.schedule.filter(
             duration_start__lte=current_time,
             duration_end__gte=current_time

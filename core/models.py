@@ -117,8 +117,8 @@ class BrowsingSession(models.Model):
     
 class Schedule(models.Model):
     name = models.CharField(max_length=255)
-    duration_start = models.DateTimeField()
-    duration_end = models.DateTimeField() 
+    duration_start = models.TimeField()
+    duration_end = models.TimeField() 
     date_created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     
