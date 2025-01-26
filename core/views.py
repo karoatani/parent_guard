@@ -159,8 +159,10 @@ class BrowsingSessionStartAPIView(APIView):
         blocked_by_schedule = child.schedule.filter(
             duration_start__lte=current_time,
             duration_end__gte=current_time
-        )
-        print('activeeeee')
+        ).exists()
+        
+        print('current time', current_time)
+        print(child.schedule.duration_start, child.schedule.duration_end)
         print(blocked_by_schedule)
         if blocked_by_schedule:
             # Log blocked access attempt
