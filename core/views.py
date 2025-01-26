@@ -685,7 +685,7 @@ class DashboardParentSettingsScheduleCreateAPIView(APIView):
             print(validated_data)
             # Create the schedule
             schedule = Schedule.objects.create(**schedule_data)
-            
+            print(schedule.objects.all().values('duration_start', 'duration_end'))
 
             # Add to profile's schedule
             profile.schedule.add(schedule)
