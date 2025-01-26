@@ -163,8 +163,6 @@ class BrowsingSessionStartAPIView(APIView):
         
         print(current_time_only)
         print(child.schedule.all().values('duration_start', 'duration_end'))
-        print(current_time_only > child.schedule.all().values('duration_start', 'duration_end').first().duration_start)
-        print(current_time_only < child.schedule.all().values('duration_start', 'duration_end').first().duration_end)
         blocked_by_schedule = child.schedule.filter(
             duration_start__lte=current_time_only,
             duration_end__gte=current_time_only
