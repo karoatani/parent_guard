@@ -167,6 +167,9 @@ class BrowsingSessionStartAPIView(APIView):
             duration_start__lte=current_time_only,
             duration_end__gte=current_time_only
         ).exists()
+        print(child.schedule.all().first().duration_start)
+        print(child.schedule.all().first().duration_end)
+        print(blocked_by_schedule)
         
         
         
