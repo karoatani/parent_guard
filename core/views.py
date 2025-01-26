@@ -160,12 +160,13 @@ class BrowsingSessionStartAPIView(APIView):
             duration_start__lte=current_time,
             duration_end__gte=current_time
         ).exists()
+        print(blocked_by_schedule)
         
         if blocked_by_schedule:
             # Log blocked access attempt
             ActivityLog.objects.create(
                 child=child,
-                website_url__contains=host_name,
+                website_url=host_name,
                 action='blocked',
                 reason='Schedule restriction'
             )
