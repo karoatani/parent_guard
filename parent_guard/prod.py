@@ -2,7 +2,7 @@ from parent_guard.settings import *
 from decouple import config
 import dj_database_url
 
-DEBUG = False
+DEBUG = True
 SECRET_KEY= config("SECRET_KEY")
 
 DATABASES = {
