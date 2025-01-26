@@ -1234,7 +1234,8 @@ class DashboardParentTotalBlockedTodayAPIView(APIView):
                 child__in=children,
                 action='blocked',
                 date_created__gte=today_start
-            ).count()
+            ).values('website_url').distinct().count()
+            print(total_blocked)
             
             return Response({
                 'message': 'Total blocked sites retrieved successfully',
