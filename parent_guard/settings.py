@@ -135,12 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 # Media files configuration
-MEDIA_URL = '/static_in_env/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static_in_env')  # Changed from static_in_env to media
+MEDIA_URL = '/staticfiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Changed from static_in_env to media
 
 # Static files configuration
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
