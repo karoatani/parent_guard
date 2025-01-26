@@ -177,8 +177,8 @@ class DashboardParentSettingsBlockList(serializers.ModelSerializer):
 
 class DashboardParentSettingsSchedule(serializers.ModelSerializer):
     name = serializers.CharField(max_length=255)
-    duration_start = serializers.DateTimeField()
-    duration_end = serializers.DateTimeField()
+    duration_start = serializers.TimeField()
+    duration_end = serializers.TimeField()
 
     class Meta:
         model = Schedule
