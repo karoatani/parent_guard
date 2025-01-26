@@ -157,12 +157,19 @@ class BrowsingSessionStartAPIView(APIView):
         # Check schedules
         current_time = timezone.now()
         current_time_only = current_time.time()  # Get just the time component
-
+        # 11:31 - 11:50
+        # 11:45
         # Get all schedules and check if current time falls within any schedule's time range
+        
+        print(current_time_only)
+        print(child.schedule.all().values('duration_start', 'duration_end'))
+        print(current_time_only > child.schedule.all().values('duration_start', 'duration_end').first().duration_start)
+        print(current_time_only < child.schedule.all().values('duration_start', 'duration_end').first().duration_end)
         blocked_by_schedule = child.schedule.filter(
             duration_start__lte=current_time_only,
             duration_end__gte=current_time_only
         ).exists()
+        
         
         
         if blocked_by_schedule:
