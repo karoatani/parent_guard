@@ -160,8 +160,8 @@ class BrowsingSessionStartAPIView(APIView):
 
         # Get all schedules and check if current time falls within any schedule's time range
         blocked_by_schedule = child.schedule.filter(
-            duration_start__time__lte=current_time_only,
-            duration_end__time__gte=current_time_only
+            duration_start__lte=current_time_only,
+            duration_end__gte=current_time_only
         ).exists()
         
         
