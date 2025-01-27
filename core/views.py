@@ -1283,22 +1283,21 @@ class DashboardParentChildrenTodayActivityAPIView(APIView):
                 if not today_logs.exists():
                     continue
                 
+                # Get blocked attempts count
+                blocked_attempts = today_logs.filter(action='blocked').count()
+                
                 # Get most recent allowed website (current website)
                 current_activity = today_logs.filter(
                     action='allowed'
                 ).order_by('-date_created').first()
                 
-                if not current_activity:
-                    continue
-                
-                # Get blocked attempts count
-                blocked_attempts = today_logs.filter(action='blocked').count()
                 # Calculate time since first activity
                 first_activity = today_logs.order_by('date_created').first()
                 time_spent = timezone.now() - first_activity.date_created
+                
                 child_data = {
                     'child_name': child.name,
-                    'current_website': current_activity.website_url,
+                    'current_website': current_activity.website_url if current_activity else None,
                     'time_spent': time_spent,
                     'blocked_attempts': blocked_attempts
                 }
